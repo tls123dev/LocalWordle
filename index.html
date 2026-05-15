@@ -1,22 +1,49 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <title>My App</title>
-        <link rel="stylesheet" href="style.css">
-        <script src="app.js"></script>
-    </head>
-    <body>
-        <header>
-            <div class="logo">WORDLE</div>
-            <div class="header-stats">
-                <span><strong>0</strong>Jugadas</span>
-                <span><strong>0</strong>Victorias</span>
-                <span><strong>0</strong>Rachas</span>
-            </div>
-        </header>
+<html lang="es">
 
-        <div class="message-wrap"><div class="message" id="message"></div></div>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My App</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@400;500&display=swap"
+        rel="stylesheet">
+</head>
+
+<body class="wrapper" id="wordle">
+    <div class="mode-selection" id="mode-selection">
+        <p class="mode-title">Wordle</p>
+        <p class="mode-subtitle">Elige la dificultad</p>
+        <button class="mode-btn" onclick="startGame(5)">
+            <span>5 letras</span><span class="badge">Clásico</span>
+        </button>
+        <button class="mode-btn" onclick="startGame(6)">
+            <span>6 letras</span><span class="badge">Intermedio</span>
+        </button>
+        <button class="mode-btn" onclick="startGame(7)">
+            <span>7 letras</span><span class="badge">Difícil</span>
+        </button>
+        <button class="mode-btn" onclick="startGame(8)">
+            <span>8 letras</span><span class="badge">Experto</span>
+        </button>
+    </div>
+
+    <div class="game-wrap" id="game-wrap">
+        <div class="top-bar">
+            <button class="back-btn" onclick="goMenu()">← Menu</button>
+            <h2 id="game-title">Wordle 5</h2>
+            <div style="width: 56px;"></div>
+        </div>
+
+        <div class="header-stats">
+            <span><strong id="played">0</strong>Jugadas</span>
+            <span><strong id="wins">0</strong>Victorias</span>
+            <span><strong id="streak">0</strong>Rachas</span>
+        </div>
+
+        <div class="message-wrap">
+            <div class="message" id="message"></div>
+        </div>
 
         <div class="grid" id="grid"></div>
 
@@ -26,17 +53,19 @@
             <div class="kb-row" id="kb-row-2"></div>
         </div>
 
-        
         <div class="modal-wrap" id="modal">
             <div class="modal">
                 <div class="modal-emoji" id="modal-emoji">🎉</div>
                 <div class="modal-title" id="modal-title">¡Felicidades!</div>
                 <div class="modal-word" id="modal-word"></div>
                 <div class="modal-meaning" id="modal-meaning"></div>
-                <button class="modal-btn" id="modal-btn">Jugar de nuevo</button>
+                <button class="modal-btn" onclick="newGame()">Jugar de nuevo</button>
+                <button class="modal-btn" onclick="goMenu()">Cambiar modo</button>
                 <div class="modal-score" id="modal-score"></div>
             </div>
         </div>
+    </div>
+    <script src="app.js"></script>
+</body>
 
-    </body>
 </html>
