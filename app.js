@@ -376,13 +376,16 @@ function submitGuess() {
     const guess = currentGuess;
     guesses.push(guess);
     currentGuess = '';
-
     const result = scoreGuess(guess, target);
+    const isLastGuess = guesses.length === 6;
+    const won = result.every(r => r === 'correct');
+    const isOver = won || isLastGuess;
+
+    if (isOver) gameOver = true;
+
     revealRow(guesses.length - 1, guess, result, () => {
         updateKeyboard(guess, result);
-        const won = result.every(r => r === 'correct');
-        if (won || guesses.length === 6) {
-            gameOver = true;
+        if (isOver) {
             stats.played++;
             if (won) {
                 stats.wins++;
