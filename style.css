@@ -13,8 +13,8 @@
     --text-muted: #888;
     --correct: #4a8c5c;
     --present: #c9923a;
-    --absent: #3a3a37;
-    --absent-text: #666;
+    --absent: #50504e;
+    --absent-text: #bebebe;
     --key-bg: #2a2a27;
     --key-text: #e0ddd6;
 }
@@ -29,7 +29,6 @@ body {
     justify-content: center;
 }
 
-/* ── PANTALLA DE SELECCIÓN ── */
 .mode-selection {
     display: flex;
     flex-direction: column;
@@ -92,7 +91,6 @@ body {
     letter-spacing: 0.03em;
 }
 
-/* ── JUEGO ── */
 .game-wrap {
     display: none;
     flex-direction: column;
@@ -103,7 +101,6 @@ body {
     gap: 0;
 }
 
-/* ── TOP BAR ── */
 .top-bar {
     width: 100%;
     display: flex;
@@ -141,7 +138,6 @@ body {
     background: var(--surface);
 }
 
-/* ── STATS ── */
 .header-stats {
     display: flex;
     gap: 28px;
@@ -168,7 +164,6 @@ body {
     letter-spacing: 0;
 }
 
-/* ── MENSAJE ── */
 .message-wrap {
     height: 36px;
     display: flex;
@@ -197,7 +192,6 @@ body {
     transform: translateY(0);
 }
 
-/* ── GRILLA ── */
 .grid {
     display: flex;
     flex-direction: column;
@@ -210,7 +204,6 @@ body {
     gap: 5px;
 }
 
-/* Tamaño base — se sobreescribe via JS según wordLength */
 .tile {
     width: 62px;
     height: 62px;
@@ -227,7 +220,7 @@ body {
 }
 
 .tile.filled {
-    border-color: #555;
+    border-color: #807a7a;
     animation: pop 0.1s ease;
 }
 
@@ -236,7 +229,6 @@ body {
 .tile.absent   { background: var(--absent);   border-color: var(--absent);   color: var(--absent-text); }
 .tile.reveal   { animation: flip 0.5s ease forwards; }
 
-/* ── TECLADO ── */
 .keyboard {
     display: flex;
     flex-direction: column;
@@ -277,7 +269,6 @@ body {
 .key.present { background: var(--present); color: #fff; }
 .key.absent  { background: var(--absent);  color: var(--absent-text); }
 
-/* ── MODAL ── */
 .modal-wrap {
     position: fixed;
     inset: 0;
@@ -381,7 +372,6 @@ body {
 
 .modal-score strong { color: var(--text); }
 
-/* ── ANIMACIONES ── */
 @keyframes pop {
     0%   { transform: scale(1); }
     50%  { transform: scale(1.1); }
@@ -404,7 +394,6 @@ body {
 
 .shake { animation: shake 0.4s ease; }
 
-/* ── RESPONSIVE ── */
 @media (max-width: 400px) {
     .tile { width: 52px; height: 52px; font-size: 22px; }
     .key  { height: 46px; min-width: 30px; font-size: 12px; }
